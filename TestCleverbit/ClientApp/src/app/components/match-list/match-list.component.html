@@ -1,0 +1,41 @@
+<div class="container-fluid p-md-4 p-2">
+  <div class="card">
+    <div class="card-body">
+      <table class="table" *ngIf="matches.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">
+              <span>Expiration </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cursor-pointer" *ngFor="let match of matches">
+            <td>
+
+              <table class="table" *ngFor="let item of match.items">
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <span>user </span>
+                    </th>
+                    <th scope="col">
+                      <span>time </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="cursor-pointer">
+                    <td>{{item.email}}</td>
+                    <td>{{item.number}}</td>
+                  </tr>
+                </tbody>                
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

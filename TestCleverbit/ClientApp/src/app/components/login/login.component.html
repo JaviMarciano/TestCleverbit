@@ -1,0 +1,27 @@
+<div class="container">
+      <div class="col-md-5">
+      <div class="log-in-form-puc">
+        <form action="" [formGroup]="form" (ngSubmit)="login()" id="login-form">
+          <div class="form-group">
+            <input type="text" class="form-control" id="email" placeholder="Email"
+                   formControlName="email" [pattern]="emailPattern"
+                   [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors?.pattern">invalid email</div>
+              <div *ngIf="f.email.errors?.required">The email is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="Password"
+                   formControlName="password" autocomplete="off"
+                   [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <div class="invalid-feedback">The password is required.</div>
+          </div>
+          <div class="form-group" *ngIf="invalidLogin">
+            <div class="">{{invalidLoginMessage}}</div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="loginInProcess">Send</button>
+        </form>
+      </div>
+    </div>
+</div>
