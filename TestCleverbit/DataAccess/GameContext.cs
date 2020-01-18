@@ -24,7 +24,9 @@ namespace TestCleverbit.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            modelBuilder.Entity<User>()
+             .HasKey(x => x.Id);
+            modelBuilder.Entity<User>().Ignore(x => x.Token);            
         }
     }
 }

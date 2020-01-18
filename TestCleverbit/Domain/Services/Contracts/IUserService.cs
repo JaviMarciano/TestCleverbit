@@ -1,10 +1,11 @@
 ﻿
 using System.Threading.Tasks;
+using TestCleverbit.Domain.Entities;
 
 namespace TestCleverbit.Domain.Services.Contracts
 {
     public interface IUserService
     {
-        Task<bool> Login(string email, string password);
+        Task<User> Login(string email, string password);
     }
 }

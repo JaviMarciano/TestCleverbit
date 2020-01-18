@@ -11,6 +11,7 @@ namespace TestCleverbit.DependencyInjections
         public static void AddWebSiteDependencies(this IServiceCollection services, IConfiguration configuration)
         {            
             services.AddDomainConfiguration();
+            services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
             services.AddCoreDataConfiguration(options => options.DataSource = new MsSqlDataSource("CleverbitGame"));
         }
     }

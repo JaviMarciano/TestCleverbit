@@ -12,8 +12,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  async login(userCredential: IUser): Promise<boolean> {
-    return this.http.post<boolean>("api/account/login", userCredential).toPromise();
+  async login(userCredential: IUser): Promise<IUser> {
+    return this.http.post<IUser>("api/account/login", userCredential).toPromise();
   }
   
   isAuthenticated() {

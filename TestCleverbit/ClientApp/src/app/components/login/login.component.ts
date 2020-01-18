@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       .then(loginResult => {
         if (loginResult) {
           this.invalidLogin = false;
-          this.authService.user = user;
+          this.authService.user = loginResult;
           this.router.navigateByUrl(`/game`);
         } else {
           this.invalidLogin = true;

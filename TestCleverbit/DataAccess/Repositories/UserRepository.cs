@@ -17,5 +17,10 @@ namespace TestCleverbit.DataAccess.Repositories
 
         public override Expression<Func<User, int>> KeyProperty => x => x.Id;
 
+        public Task<User> GetByEmailAndPassword(string email, string password)
+        {
+            return DbContext.Set<User>().FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+        }
+
     }
 }

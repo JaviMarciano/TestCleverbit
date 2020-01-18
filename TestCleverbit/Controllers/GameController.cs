@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using TestCleverbit.ApiModels;
 using TestCleverbit.Domain.Services;
@@ -8,7 +11,7 @@ namespace TestCleverbit.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GameController : ControllerBase
+    public class GameController : BaseController
     {
         private readonly IGameService _gameService;
 
@@ -26,9 +29,13 @@ namespace TestCleverbit.Controllers
         }
 
         [HttpPost]
-        public void Play([FromBody] int number)
+        [Authorize]
+        [Route("play")]
+        public async Task<IActionResult> Play([FromBody] int number)
         {
-            var a= 10;
+            var currentUser = GetCurrentUser();
+            await _gameService.Play(number, currentUser);
+            return Ok();
         }
     }
 }

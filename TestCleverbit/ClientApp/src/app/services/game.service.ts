@@ -12,4 +12,8 @@ export class GameService {
   public getallMatches(): Promise<IMatch[]> {
     return this.http.get<IMatch[]>("api/game/all-matches").toPromise();
   }
+
+  public play(number: number): Promise<void> {
+    return this.http.post<void>("api/game/play", number).toPromise();
+  }
 }

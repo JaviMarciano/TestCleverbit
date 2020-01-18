@@ -17,9 +17,12 @@ namespace TestCleverbit.Controllers
         }
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] UserApiModel user)
+        public async Task<IActionResult> Login([FromBody] UserApiModel userApiModel)
         {
-            return Ok(await _userService.Login(user.Email, user.Password));
+            var user = await _userService.Login(userApiModel.Email, userApiModel.Password);
+            if (user == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+            return Ok(user);
         }
     }
 }

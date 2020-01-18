@@ -17,6 +17,7 @@
     <None Remove="ClientApp\src\app\domain\match-item.ts" />
     <None Remove="ClientApp\src\app\domain\match.ts" />
     <None Remove="ClientApp\src\app\domain\user-credential.ts" />
+    <None Remove="ClientApp\src\app\JwtInterceptor.ts" />
     <None Remove="ClientApp\src\app\services\auth.service.ts" />
     <None Remove="ClientApp\src\app\services\game.service.ts" />
   </ItemGroup>
@@ -31,6 +32,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\domain\match-item.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\domain\match.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\domain\user-credential.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\JwtInterceptor.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\auth.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\game.service.ts" />
   </ItemGroup>
